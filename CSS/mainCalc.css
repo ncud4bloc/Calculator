@@ -1,0 +1,126 @@
+body {
+    height: 1000px;
+    background-color: #5f5050;
+}
+
+#top_bar {
+    height: 120px;
+    background-color: #aaa;
+    border: 1px solid #000;
+   /* margin-bottom: 10px;*/
+}
+
+#display_box {
+    height: 100px;
+    width: 60%;
+    margin-top: 10px;
+    margin-left: 3.33%;
+    margin-right: 3.33%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border: 2px solid #86117d;
+    border-radius: 8px;
+    background-color: #31d19b;
+}
+
+#input1 {
+    line-height: 1.35em;
+}
+
+#act2 {
+    border-bottom: 1px dashed #000;
+}
+
+#answer {
+    color: #00f;
+}
+
+#howTo_box {
+    height: 100px;
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 2%;
+    border: 2px solid #000;
+    background-color: #000;
+    border-radius: 8px;
+}
+
+#help {
+    color: #fff;
+    padding-top: 25px;
+    text-align: center;
+}
+
+#main_box {
+    height: 250px;
+    background-color: #5f5050;
+    /*border: 1px solid #000;*/
+}
+
+#side_box {
+    height: 250px;
+    background-color: #5f5050;
+    /*border: 1px solid #000;*/
+}
+
+.num-key, .op-key {
+    height: 15%;
+    background-color: #5f5050;
+    margin: auto;
+    text-align: center;
+}
+
+.nButton, .oButton {
+    width: 65%;
+    height: 85%;
+    padding-top: 2px;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #000;
+}
+
+.oButton {
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #2129e0;
+}
+
+.eButton {
+    height: 15%;
+    margin-top: 60px;
+    background-color: #2129e0;
+    border: none;
+}
+
+.cButton {
+    border: none;
+    background-color: #2129e0;
+}
+
+.num-key, .op-key {
+    padding-top: 10px;
+}
+
+#opEnter {
+    height: 150px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #2129e0;
+}
+
+#opClear {
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #2129e0;
+}
+
+#undo {
+    background-color: #f00;
+}
+
+#numPlaces {
+    background-color: #36f513;
+}
