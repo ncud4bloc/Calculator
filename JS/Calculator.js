@@ -44,6 +44,8 @@ var num2Flt;
 var answerFlt;
 
 var clickCount = 0;
+var activEO = 'enter';
+var pmSign = 0;
 
 // Functions:
 
@@ -52,11 +54,52 @@ var help = function(){
 }
 
 var makeFloat = function(arrayInput){
-    return parseFloat(num1Str);
+    return parseFloat(arrayInput);
 }
 
 var fixNumDec = function(){
     var decNum = prompt('Enter desired number of places after the decimal point:');
+    return decNum;
+}
+
+var opSetupNum1 = function(){
+    var inLength = currentInput.length;
+    for (var i = 0; i < inLength; i++){
+    num1Str += currentInput[i]; 
+    }
+    if (pmSign == 1){
+        num1Flt = (makeFloat(num1Str) * -1);
+        num1Str = num1Flt.toString();
+    } else {
+        num1Flt = makeFloat(num1Str);
+    }
+    pmSign = 0;
+    $num1Display.text(num1Str);
+    currentInput = [];
+    num1Str = [];
+    activEO = 'action';
+}
+
+var opSetupNum2 = function(){
+    var inLength = currentInput.length;
+    for (var i = 0; i < inLength; i++){
+    num2Str += currentInput[i]; 
+    }
+     if (pmSign == 1){
+        num2Flt = (makeFloat(num2Str) * -1);
+        num2Str = num2Flt.toString();
+    } else {
+        num2Flt = makeFloat(num2Str);
+    }
+    pmSign = 0;
+    $num2Display.text(num2Str);
+    currentInput = [];
+    num2Str = [];
+    activEO = 'enter';
+}
+
+var oppoNum = function(){
+    pmSign = 1;
 }
 
 // Events:
@@ -127,4 +170,49 @@ $point.on('click',function(){
 $undo.on('click',function(){
     currentInput.pop();
     console.log(currentInput);
+});
+
+$enter.on('click',function(){
+    opSetupNum1();
+});
+
+$divide.on('click',function(){
+    opSetupNum2();
+    $actionDisplay.text('divide');
+    answerFlt = num1Flt / num2Flt;
+    $answerDisplay.text(answerFlt);
+});
+
+$multiply.on('click',function(){
+    opSetupNum2();
+    $actionDisplay.text('multiply');
+    answerFlt = num1Flt * num2Flt;
+    $answerDisplay.text(answerFlt);
+});
+
+$minus.on('click',function(){
+    opSetupNum2();
+    $actionDisplay.text('minus');
+    answerFlt = num1Flt - num2Flt;
+    $answerDisplay.text(answerFlt);
+});
+
+$plus.on('click',function(){
+    opSetupNum2();
+    $actionDisplay.text('plus');
+    answerFlt = num1Flt + num2Flt;
+    $answerDisplay.text(answerFlt);
+});
+
+$plusMinus.on('click',function(){
+    oppoNum();
+});
+
+$clear.on('click',function(){
+    num1Flt = 0;
+    num2Flt = 0;
+    $num1Display.text('num1');
+    $num2Display.text('num2');
+    $actionDisplay.text('action');
+    $answerDisplay.text('answer');
 });
