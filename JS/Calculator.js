@@ -43,9 +43,11 @@ var num1Flt;
 var num2Flt;
 var answerFlt;
 
-var clickCount = 0;
 var activEO = 'enter';
+var displayDump;
 var pmSign = 0;
+var rootX = 0;
+var sqX = 0;
 
 // Functions:
 
@@ -59,7 +61,9 @@ var makeFloat = function(arrayInput){
 
 var fixNumDec = function(){
     var decNum = prompt('Enter desired number of places after the decimal point:');
-    return decNum;
+    var detail = answerFlt.toFixed(decNum);
+    $answerDisplay.text('');
+    $answerDisplay.text(detail);
 }
 
 var opSetupNum1 = function(){
@@ -67,13 +71,21 @@ var opSetupNum1 = function(){
     for (var i = 0; i < inLength; i++){
     num1Str += currentInput[i]; 
     }
-    if (pmSign == 1){
-        num1Flt = (makeFloat(num1Str) * -1);
+    num1Flt = makeFloat(num1Str);
+    if (rootX == 1){
+        num1Flt = Math.sqrt(makeFloat(num1Str));
         num1Str = num1Flt.toString();
     } else {
         num1Flt = makeFloat(num1Str);
     }
-    pmSign = 0;
+    rootX = 0;
+    if (sqX == 1){
+        num1Flt = (makeFloat(num1Str) * makeFloat(num1Str));
+        num1Str = num1Flt.toString();
+    } else {
+        num1Flt = makeFloat(num1Str);
+    }
+    sqX = 0;
     $num1Display.text(num1Str);
     currentInput = [];
     num1Str = [];
@@ -85,13 +97,21 @@ var opSetupNum2 = function(){
     for (var i = 0; i < inLength; i++){
     num2Str += currentInput[i]; 
     }
-     if (pmSign == 1){
-        num2Flt = (makeFloat(num2Str) * -1);
+    num2Flt = makeFloat(num2Str);
+    if (rootX == 1){
+        num2Flt = Math.sqrt(makeFloat(num2Str));
         num2Str = num2Flt.toString();
     } else {
         num2Flt = makeFloat(num2Str);
     }
-    pmSign = 0;
+    rootX = 0;
+    if (sqX == 1){
+        num2Flt = (makeFloat(num2Str) * makeFloat(num2Str));
+        num2Str = num2Flt.toString();
+    } else {
+        num2Flt = makeFloat(num2Str);
+    }
+    sqX = 0;
     $num2Display.text(num2Str);
     currentInput = [];
     num2Str = [];
@@ -102,6 +122,23 @@ var oppoNum = function(){
     pmSign = 1;
 }
 
+var getSQRT = function(){
+    rootX = 1;
+}
+
+var getSquare = function(){
+    sqX = 1;
+}
+
+var currentDisplay = function(){
+    displayDump = currentInput;
+    if (activEO == 'enter'){
+        $num1Display.text(displayDump);
+    } else {
+        $num2Display.text(displayDump);
+    }
+}
+
 // Events:
 
 $howTo.on('click',function(){
@@ -110,66 +147,80 @@ $howTo.on('click',function(){
 
 $numPlaces.on('click',function(){
     fixNumDec();
+    /*$answerDisplay.text('');
+    $answerDisplay.text(detail);*/
 });
 
 $zero.on('click',function(){
     currentInput.push("0");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $one.on('click',function(){
     currentInput.push("1");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $two.on('click',function(){
     currentInput.push("2");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $three.on('click',function(){
     currentInput.push("3");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $four.on('click',function(){
     currentInput.push("4");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $five.on('click',function(){
     currentInput.push("5");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $six.on('click',function(){
     currentInput.push("6");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $seven.on('click',function(){
     currentInput.push("7");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $eight.on('click',function(){
     currentInput.push("8");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $nine.on('click',function(){
     currentInput.push("9");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $point.on('click',function(){
     currentInput.push(".");
     console.log(currentInput);
+    currentDisplay();
 });
 
 $undo.on('click',function(){
     currentInput.pop();
     console.log(currentInput);
+    currentDisplay();
 });
 
 $enter.on('click',function(){
@@ -205,7 +256,20 @@ $plus.on('click',function(){
 });
 
 $plusMinus.on('click',function(){
-    oppoNum();
+    currentInput.unshift("-");
+    currentDisplay();
+    console.log(currentInput);
+});
+
+$sqrt.on('click',function(){
+    getSQRT();
+ //   if (activEO == 'action'){
+ //       opSetupNum2();
+ //   }
+});
+
+$square.on('click',function(){
+    getSquare();
 });
 
 $clear.on('click',function(){
