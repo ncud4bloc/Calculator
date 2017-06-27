@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neil's RPN Calculator</title>
+    <link href="../CSS/normalize.css" type="text/css" rel="stylesheet" />
+    <!--<link href="../CSS/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../CSS/nccworks12.css" type="text/css" rel="stylesheet">
+    <link href="../CSS/mainCalc.css" type="text/css" rel="stylesheet" /> 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:900|Tangerine" rel="stylesheet">
+  </head>
+  <body>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="top_bar">      
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="display_box">
+            <div class="input_box" id="input1">num1</div>
+            <div class="input_box" id="act1">enter</div>
+            <div class="input_box" id="input2">num2</div>
+            <div class="input_box" id="act2">action</div>
+            <div class="input_box" id="answer">answer</div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="howTo_box">
+            <p id="help">RPN Explained</p>
+        </div>        
+    </div>
+      
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="main_box">
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numSeven">
+            <p class="nButton" id="seven">7</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numEight">
+            <p class="nButton" id="eight">8</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numNine">
+            <p class="nButton" id="nine">9</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opDivide">
+            <p class="oButton" id="divide">/</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numFour">
+            <p class="nButton" id="four">4</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numFive">
+            <p class="nButton" id="five">5</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numSix">
+            <p class="nButton" id="six">6</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opMultiply">
+            <p class="oButton" id="multiply">*</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numOne">
+            <p class="nButton" id="one">1</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numTwo">
+            <p class="nButton" id="two">2</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numThree">
+            <p class="nButton" id="three">3</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opSubtract">
+            <p class="oButton" id="minus">-</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="numZero">
+            <p class="nButton" id="zero">0</p>
+        </div>
+        <div class="num-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="decimalPt">
+            <p class="nButton" id="point">.</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opBackspace">
+            <p class="oButton" id="undo">back</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opAdd">
+            <p class="oButton" id="plus">+</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opPosNeg">
+            <p class="oButton" id="plusMinus">+/-</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opSQRT">
+            <p class="oButton" id="sqrt">sqrt</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opSquare">
+            <p class="oButton" id="square">**2</p>
+        </div>
+        <div class="op-key col-xs-3 col-sm-3 col-md-3 col-lg-3" id="opDecPlaces">
+            <p class="oButton" id="numPlaces">dec</p>
+        </div>
+    </div>
+      
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="side_box">
+        <div class="op-key col-xs-12 col-sm-12 col-md-12 col-lg-12" id="opEnter">
+            <p class="oButton eButton">Enter</p>
+        </div>
+        <div class="op-key col-xs-12 col-sm-12 col-md-12 col-lg-12" id="opClear">
+            <p class="oButton cButton">Clear</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../JS/Calculator.js"></script>
+  </body>
+</html>

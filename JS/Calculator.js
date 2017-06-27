@@ -66,6 +66,42 @@ var fixNumDec = function(){
     $answerDisplay.text(detail);
 }
 
+var fixNumDec2 = function(){
+    $one.on('click',function(){
+        var detail = answerFlt.toFixed(1);
+    });
+    $two.on('click',function(){
+        var detail = answerFlt.toFixed(2);
+    });
+    $three.on('click',function(){
+        var detail = answerFlt.toFixed(3);
+    });
+    $four.on('click',function(){
+        var detail = answerFlt.toFixed(4);
+    });
+    $five.on('click',function(){
+        var detail = answerFlt.toFixed(5);
+    });
+    $six.on('click',function(){
+        var detail = answerFlt.toFixed(6);
+    });
+    $seven.on('click',function(){
+        var detail = answerFlt.toFixed(7);
+    });
+    $eight.on('click',function(){
+        var detail = answerFlt.toFixed(8);
+    });
+    $nine.on('click',function(){
+        var detail = answerFlt.toFixed(9);
+    });
+    $zero.on('click',function(){
+        var detail = answerFlt.toInt();
+    });
+    $answerDisplay.text('');
+    $answerDisplay.text(detail);
+    activEO = 'enter';
+}
+
 var opSetupNum1 = function(){
     var inLength = currentInput.length;
     for (var i = 0; i < inLength; i++){
@@ -136,7 +172,7 @@ var currentDisplay = function(){
         $num1Display.text(displayDump);
     } else {
         $num2Display.text(displayDump);
-    }
+    } 
 }
 
 // Events:
@@ -146,9 +182,10 @@ $howTo.on('click',function(){
 });
 
 $numPlaces.on('click',function(){
+    /*activEO = 'answer';
+    fixNumDec2();
+    currentDisplay();*/
     fixNumDec();
-    /*$answerDisplay.text('');
-    $answerDisplay.text(detail);*/
 });
 
 $zero.on('click',function(){
