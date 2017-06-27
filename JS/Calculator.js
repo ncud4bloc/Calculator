@@ -263,13 +263,20 @@ $plusMinus.on('click',function(){
 
 $sqrt.on('click',function(){
     getSQRT();
- //   if (activEO == 'action'){
- //       opSetupNum2();
- //   }
+    if (activEO == 'action'){
+        $num2Display.text(displayDump + ' sqrt');
+    } else {
+        $num1Display.text(displayDump + ' sqrt');
+    }
 });
 
 $square.on('click',function(){
     getSquare();
+    if (activEO == 'action'){
+        $num2Display.text(displayDump + ' squared');
+    } else {
+        $num1Display.text(displayDump + ' squared');
+    }
 });
 
 $clear.on('click',function(){
